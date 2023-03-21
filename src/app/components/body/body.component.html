@@ -1,3 +1,8 @@
+
+<app-banner></app-banner>
+
+<app-presentation></app-presentation>
+
 <div class="container" style="height: 100%;" > <!--Clase container de Bootstrap-->
 
   <hr />
@@ -6,9 +11,18 @@
     <!--
     Sección Acerca de
     -->
+
     <h1><strong>ACERCA DE MÍ</strong></h1>
-    <h2>
-    </h2>
+
+    <div class="col">
+      <h2>{{miPortfolio.about}}</h2>
+    </div>
+
+    <div class="col">
+      <app-edicion *ngIf="sesion" [obj]="miPortfolio" (emitter)="onEditar($event)"></app-edicion>
+    </div>
+
+    <app-formulario *ngIf="editar" [modificar]="'portfolio'" [obj]="miPortfolio"></app-formulario>
   </div>
 
   <hr />
@@ -17,8 +31,19 @@
     <!--
     Sección Experiencia
     -->
-    <h1><strong>EXPERIENCIA</strong></h1>
-    <h2></h2>
+
+    <h1><strong>EXPERIENCIA LABORAL</strong></h1>
+
+    <h1 *ngIf="arrayVacio(miPortfolio.experiencia)" style="text-align: center; padding-top: 20px;">No hay experiencia para mostrar</h1>
+
+    <app-experiencia
+      *ngFor="let exp of miPortfolio.experiencia"
+      [exp]="exp"
+      [expArray]="miPortfolio.experiencia">
+    </app-experiencia>
+
+    <app-aniadir *ngIf="sesion" [modificar]="'experiencia'"></app-aniadir>
+
   </div>
 
   <hr />
@@ -28,9 +53,16 @@
     Sección Educación
     -->
     <h1><strong>EDUCACIÓN</strong></h1>
-    <h2>
 
-    </h2>
+    <h1 *ngIf="arrayVacio(miPortfolio.educacion)" style="text-align: center; padding-top: 20px;">No hay educación para mostrar</h1>
+
+      <app-educacion
+      *ngFor="let educ of miPortfolio.educacion"
+      [educ]="educ"
+      [educArray]="miPortfolio.educacion">
+      </app-educacion>
+
+      <app-aniadir *ngIf="sesion" [modificar]="'educacion'"></app-aniadir>
   </div>
 
   <hr />
@@ -40,9 +72,16 @@
     Sección Hard & Soft Skills
     -->
     <h1><strong>HARD & SOFT SKILLS</strong></h1>
-    <h2>
 
-    </h2>
+    <h1 *ngIf="arrayVacio(miPortfolio.skills)" style="text-align: center; padding-top: 20px;">No hay skills para mostrar</h1>
+
+      <app-skills
+      *ngFor="let skill of miPortfolio.skills"
+      [skill]="skill"
+      [skillsArray]="miPortfolio.skills">
+      </app-skills>
+
+      <app-aniadir *ngIf="sesion" [modificar]="'skill'"></app-aniadir>
   </div>
 
   <hr />
@@ -52,8 +91,15 @@
     Sección Proyectos
     -->
     <h1><strong>PROYECTOS</strong></h1>
-    <h2>
 
-    </h2>
+    <h1 *ngIf="arrayVacio(miPortfolio.proyectos)" style="text-align: center; padding-top: 20px;">No hay proyectos para mostrar</h1>
+
+      <app-proyectos
+      *ngFor="let prjt of miPortfolio.proyectos"
+      [prjt]="prjt"
+      [prjtArray]="miPortfolio.proyectos">
+      </app-proyectos>
+
+      <app-aniadir *ngIf="sesion" [modificar]="'proyecto'"></app-aniadir>
   </div>
 </div>

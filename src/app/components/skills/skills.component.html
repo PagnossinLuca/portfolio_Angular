@@ -1,0 +1,16 @@
+<div class="row seccion">
+
+  <div class="col-2 progreso" [ngStyle]="{'background-image' : 'conic-gradient(#009249 '+skill.exp+'%, white 0)'}">
+      <img class="col lenguaje" [src]="'assets/'+skill.logo">
+  </div>
+
+  <div class="col-8">
+      <h2 class="row texto">{{skill.nombre}}</h2>
+  </div>
+
+  <app-formulario *ngIf="(editar == skillsArray.indexOf(skill))" [modificar]="'skill'" [obj]="skill"></app-formulario>
+
+  <div class="col-2">
+    <app-edicion *ngIf="sesion || revisarSesion" [obj]="skill" [array]="skillsArray" (emitter)="onEditar($event)"></app-edicion>
+  </div>
+</div>

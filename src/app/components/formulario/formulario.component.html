@@ -1,0 +1,22 @@
+<form class="row"
+(ngSubmit)="enviar()">
+
+    <div class="mb-3 division" *ngFor="let atrib of keys">
+
+        <div *ngIf="verTipo(obj[atrib]) == 'string'">
+
+            <label class="form-label">{{atrib}}:</label>
+
+            <input *ngIf="['logo', 'foto', 'banner', 'certificado'].includes(atrib)" type="file" accept="image/* pdf" class="form-control" (change)="seleccionarArchivo($event, atrib)"
+            (value)="obj[atrib]" [(ngModel)]="obj[atrib]" [ngModelOptions]="{standalone: true}">
+
+            <input *ngIf="!(['logo', 'foto', 'banner', 'certificado'].includes(atrib))" type="text" class="form-control" (value)="obj[atrib]" [(ngModel)]="obj[atrib]"
+            [ngModelOptions]="{standalone: true}">
+
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+
+</form>

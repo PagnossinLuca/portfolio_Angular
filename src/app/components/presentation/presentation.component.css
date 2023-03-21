@@ -1,0 +1,9 @@
+#fotoPerfil {
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-top: -100px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+  }

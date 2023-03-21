@@ -12,12 +12,18 @@
 
   <!--Iconos de contacto-->
   <div class="col logo">
-    <a href="pagnossinluca@gmail.com"><i class='bx bxl-gmail bx-lg'></i></a>
-    <a href="https://github.com/PagnossinLuca"><i class='bx bxl-github bx-lg'></i></a>
+    <a href="mailto:pagnossinluca@gmail.com"><i class='bx bxl-gmail bx-lg'></i></a>
+    <a href="https://github.com/PagnossinLuca"><i class="bx bxl-github bx-lg"></i></a>
+    <a href="https://www.linkedin.com/in/luca-pagnossin-98a306256/"><i class='bx bxl-linkedin bx-lg'></i></a>
   </div>
 
   <div class="col-2">
-      <button id="login">LOGIN</button>
-  </div>
+
+    <button id="loginbtn" *ngIf="!sesion && (this.router.url !== '/login')" (click)="logIn()">LOGIN</button>
+    <button id="loginbtn" *ngIf="sesion && (this.router.url !== '/login')" (click)="logOut()">LOGOUT</button>
+    <button id="loginbtn" *ngIf="this.router.url == '/login'" (click)="this.router.navigate(['/body'])">HOME</button>
+
+
+    </div>
 
 </header>

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Navigation, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  miPortfolio: any;
+  sesion?: boolean
+  subscripcion?: Subscription
+  linkRouter: string = ""
 
-  ngOnInit(): void {
+  constructor(private datosPortfolio: PortfolioService,
+              private authService: AuthService,
+              public router: Router)
+  {
+    this.subscripcion = this.authService.getLogin().subscribe(data => this.sesion = data);
   }
 
+  ngOnInit(): void {
+
+    this.miPortfolio = this.datosPortfolio.consultarDatos().subscribe(data => {
+
+      this.miPortfolio = data;
+    });
+  }
+
+  logIn() {
+
+    //Navega al formulario para el login
+    this.router.navigate(["login"])
+  }
+
+  logOut() {
+
+    //Llama al servicio de autenticación para cerrar sesion
+    this.authService.logout()
+  }
 }

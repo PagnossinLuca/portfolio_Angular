@@ -1,0 +1,20 @@
+.lenguaje
+{
+    position: relative;
+    top: 15px;
+    left: 4px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+}
+
+.progreso
+{
+    border-radius: 50%;
+    border: 15px solid white;
+    width: 182px;
+    height: 182px;
+}

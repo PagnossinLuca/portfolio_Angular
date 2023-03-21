@@ -1,0 +1,18 @@
+<div class="row seccion">
+
+  <div *ngIf="(editar != prjtArray.indexOf(prjt))"></div>
+    <img class="col-2 institucion" [src]="'assets/'+prjt.logo">
+
+    <div class="col-8">
+      <h2 class="row texto">{{prjt.nombre}}</h2>
+      <h2 class="row">{{prjt.descripcion}}</h2>
+      <h2 class="row">{{prjt.tiempo}}</h2>
+      <a [href]="prjt.ref" class="row">{{prjt.ref}}</a>
+    </div>
+
+    <app-formulario *ngIf="(editar == prjtArray.indexOf(prjt))" [modificar]="'proyecto'" [obj]="prjt"></app-formulario>
+
+    <div class="col-2">
+      <app-edicion *ngIf="sesion || revisarSesion" [obj]="prjt" [array]="prjtArray" (emitter)="onEditar($event)"></app-edicion>
+    </div>
+</div>

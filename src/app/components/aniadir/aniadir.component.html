@@ -1,0 +1,8 @@
+<button
+  class="dot button"
+  (click)="aniadir()"
+  >
+  <i class='bx bx-plus bx-md'></i>
+</button>
+
+<app-formulario *ngIf="aniadirObj" [obj]="nuevoObj" [modificar]="modificar"></app-formulario>

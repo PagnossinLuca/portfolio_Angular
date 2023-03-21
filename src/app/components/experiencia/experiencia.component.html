@@ -1,0 +1,17 @@
+<div class="row seccion">
+
+  <div *ngIf="(editar != expArray.indexOf(exp))"></div>
+    <img class="col-2 institucion" [src]="'assets/'+exp.logo">
+
+    <div class="col-8">
+      <h2 class="row texto">{{exp.empresa}}</h2>
+      <h2 class="row">{{exp.area}}</h2>
+      <h2 class="row">{{exp.tiempo}}</h2>
+    </div>
+
+    <app-formulario *ngIf="(editar == expArray.indexOf(exp))" [modificar]="'experiencia'" [obj]="exp"></app-formulario>
+
+    <div class="col-2">
+      <app-edicion *ngIf="sesion" [obj]="exp" [array]="expArray" (emitter)="onEditar($event)"></app-edicion>
+    </div>
+</div>

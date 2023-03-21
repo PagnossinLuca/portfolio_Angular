@@ -1,12 +1,17 @@
-<section class="row" id="banner" style="margin-left: auto; margin-right: auto;">
+<section
+  class="row"
+  id="banner"
+  style="margin-left: auto; margin-right: auto;"
+  [ngStyle]="{ 'background-image': 'url(assets/'+miPortfolio.banner+')'}"
+  >
 
   <!-- Banner -->
   <div class="row">
 
-      <h1 id="introduccion"><strong>
+      <h1 class="col-2" id="introduccion"><strong>
 
           <!-- Texto introductorio del Banner -->
-          ¡Hola Mundo!
+          {{miPortfolio.texto}}
       </strong></h1>
 
   </div>

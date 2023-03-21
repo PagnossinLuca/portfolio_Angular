@@ -1,0 +1,29 @@
+div h1
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    padding-bottom: 30px;
+    color: grey;
+}
+
+body
+{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#login
+{
+    background-color: white;
+    border-radius: 15px;
+    border-top: 50px;
+    align-items: center;
+    width: 50%;
+    padding: 50px 30px 50px 30px;
+}
+
+#boton
+{
+    text-align: center;
+    padding-top: 50px;
+}
